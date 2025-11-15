@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembelajaran Konjungsi Antarkalimat</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ocean-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .wave-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e0f2fe;
+            border-color: #0284c7;
+        }
+        
+        .quiz-option.selected {
+            background-color: #0ea5e9;
+            color: white;
+            border-color: #0284c7;
+        }
+        
+        .quiz-option.correct {
+            background-color: #10b981;
+            color: white;
+            border-color: #059669;
+        }
+        
+        .quiz-option.incorrect {
+            background-color: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0ea5e9;
+            transform: translateY(-1px);
+        }
+        /* Smooth reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        /* Skeleton shimmer for loading assets */
+        .skeleton { position: relative; overflow: hidden; }
+        .skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); animation: shimmer 1.5s infinite; }
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-blue-50 to-cyan-50 scroll-smooth"><!-- Navigation -->
+  <nav class="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+     <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center"><span class="text-white font-bold text-lg">??</span>
+      </div>
+      <h1 id="nav-title" class="text-xl font-bold text-gray-800">Pembelajaran Konjungsi Antarkalimat</h1>
+     </div>
+    <div class="hidden md:flex space-x-6"><a href="#pengertian" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Pengertian</a> <a href="#jenis" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Jenis-jenis</a> <a href="#contoh" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Contoh</a> <a href="#kuis" class="nav-link text-gray-600 hover:text-blue-600 font-medium">Kuis</a>
+    </div>
+    <button id="mobile-menu-btn" aria-label="Buka menu" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+     </svg>
+    </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden pb-3">
+    <div class="space-y-2">
+     <a href="#pengertian" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Pengertian</a>
+     <a href="#jenis" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Jenis-jenis</a>
+     <a href="#contoh" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Contoh</a>
+     <a href="#kuis" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Kuis</a>
+    </div>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+    <header class="bg-gradient-to-br from-blue-600 to-blue-800 py-16 text-white">
+   <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="mb-6 reveal"><span class="text-6xl">??</span>
+    </div>
+        <h1 id="main-title" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 reveal">Pembelajaran Konjungsi Antarkalimat</h1>
+        <p id="subtitle" class="text-lg sm:text-xl md:text-2xl opacity-90 mb-8 reveal">Memahami Kata Penghubung dalam Bahasa Indonesia</p>
+        <div class="flex justify-center reveal"><a href="#pengertian" class="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg"> Mulai Belajar ?? </a>
+    </div>
+   </div>
+  </header>
+  <main class="max-w-6xl mx-auto px-4 py-12 text-gray-800"><!-- Pengertian Section -->
+    <section id="pengertian" class="mb-16 reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Pengertian</h2>
+     </div><!-- Ilustrasi Pengertian -->
+         <div class="flex justify-center mb-8">
+            <div class="w-full max-w-sm md:max-w-md reveal">
+             <svg viewBox="0 0 300 200" class="drop-shadow-lg w-full h-auto"><!-- Background --> <rect width="300" height="200" fill="url(#blueGradient)" /> <!-- Kalimat boxes --> <rect x="20" y="40" width="80" height="30" fill="#ffffff" stroke="#3b82f6" stroke-width="2" /> <text x="60" y="58" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold">
+        Kalimat 1
+             </text> <rect x="200" y="40" width="80" height="30" fill="#ffffff" stroke="#3b82f6" stroke-width="2" /> <text x="240" y="58" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold">
+        Kalimat 2
+       </text> <!-- Konjungsi bridge --> <path d="M 100 55 Q 150 30 200 55" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" /> <circle cx="150" cy="42" r="8" fill="#ef4444" /> <text x="150" y="47" text-anchor="middle" fill="white" font-size="10" font-weight="bold">
+        K
+       </text> <!-- Arrow --> <path d="M 190 55 L 200 55 L 195 50 M 200 55 L 195 60" stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round" /> <!-- Label --> <text x="150" y="90" text-anchor="middle" fill="#1e40af" font-size="14" font-weight="bold">
+        Konjungsi Antarkalimat
+       </text> <text x="150" y="110" text-anchor="middle" fill="#64748b" font-size="12">
+        Menghubungkan kalimat
+       </text> <!-- Connection lines --> <line x1="60" y1="70" x2="60" y2="130" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" /> <line x1="240" y1="70" x2="240" y2="130" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" /> <!-- Bottom boxes --> <rect x="20" y="130" width="80" height="40" fill="#f1f5f9" stroke="#64748b" stroke-width="1" /> <text x="60" y="145" text-anchor="middle" fill="#475569" font-size="10">
+        Ide terpisah
+       </text> <text x="60" y="158" text-anchor="middle" fill="#475569" font-size="10">
+        tanpa konjungsi
+       </text> <rect x="200" y="130" width="80" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1" /> <text x="240" y="145" text-anchor="middle" fill="#15803d" font-size="10">
+        Ide terhubung
+       </text> <text x="240" y="158" text-anchor="middle" fill="#15803d" font-size="10">
+        dengan konjungsi
+       </text> <!-- Gradients --> <defs>
+        <lineargradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+         <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+         <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
+        </lineargradient>
+       </defs>
+            </svg>
+            </div>
+     </div>
+     <div class="prose prose-lg max-w-none">
+      <p class="text-gray-700 leading-relaxed mb-4"><strong>Konjungsi antarkalimat</strong> adalah kata penghubung yang menghubungkan satu kalimat dengan kalimat lainnya dalam sebuah paragraf atau wacana. Konjungsi ini berfungsi untuk menunjukkan hubungan logis antara ide-ide yang terdapat dalam kalimat-kalimat tersebut.</p>
+      <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+       <h3 class="font-semibold text-blue-800 mb-2">?? Ciri-ciri Konjungsi Antarkalimat:</h3>
+       <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Terletak di awal kalimat</li>
+        <li>Diikuti tanda koma (,)</li>
+        <li>Menghubungkan kalimat satu dengan kalimat lainnya</li>
+        <li>Menunjukkan hubungan logis antar kalimat</li>
+        <li>Tidak dapat dipindahkan ke tengah atau akhir kalimat</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section><!-- Jenis-jenis Section -->
+    <section id="jenis" class="mb-16 reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Jenis-jenis Konjungsi Antarkalimat</h2>
+     </div><!-- Ilustrasi Jenis-jenis -->
+         <div class="flex justify-center mb-8">
+            <div class="w-full max-w-sm md:max-w-lg reveal">
+             <svg viewBox="0 0 400 250" class="drop-shadow-lg w-full h-auto"><!-- Background --> <rect width="400" height="250" fill="url(#typeGradient)" /> <!-- Central hub --> <circle cx="200" cy="125" r="40" fill="#3b82f6" stroke="#1e40af" stroke-width="3" /> <text x="200" y="120" text-anchor="middle" fill="white" font-size="12" font-weight="bold">
+        KONJUNGSI
+       </text> <text x="200" y="135" text-anchor="middle" fill="white" font-size="12" font-weight="bold">
+        ANTARKALIMAT
+       </text> <!-- Sebab-Akibat --> <circle cx="80" cy="60" r="25" fill="#ef4444" /> <text x="80" y="65" text-anchor="middle" fill="white" font-size="10" font-weight="bold">
+        SEBAB
+       </text> <line x1="105" y1="75" x2="170" y2="110" stroke="#ef4444" stroke-width="3" /> <text x="50" y="25" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">
+        oleh karena itu
+       </text> <!-- Penambahan --> <circle cx="320" cy="60" r="25" fill="#10b981" /> <text x="320" y="65" text-anchor="middle" fill="white" font-size="10" font-weight="bold">
+        TAMBAH
+       </text> <line x1="295" y1="75" x2="230" y2="110" stroke="#10b981" stroke-width="3" /> <text x="350" y="25" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold">
+        selain itu
+       </text> <!-- Pertentangan --> <circle cx="80" cy="190" r="25" fill="#8b5cf6" /> <text x="80" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">
+        LAWAN
+       </text> <line x1="105" y1="175" x2="170" y2="140" stroke="#8b5cf6" stroke-width="3" /> <text x="50" y="225" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="bold">
+        namun
+       </text> <!-- Waktu --> <circle cx="320" cy="190" r="25" fill="#f59e0b" /> <text x="320" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">
+        WAKTU
+       </text> <line x1="295" y1="175" x2="230" y2="140" stroke="#f59e0b" stroke-width="3" /> <text x="350" y="225" text-anchor="middle" fill="#d97706" font-size="11" font-weight="bold">
+        kemudian
+       </text> <!-- Gradients --> <defs>
+        <lineargradient id="typeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+         <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+         <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+        </lineargradient>
+       </defs>
+            </svg>
+            </div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl">
+       <h3 class="font-bold text-blue-800 mb-3 text-lg">?? Hubungan Sebab-Akibat</h3>
+       <p class="text-gray-700 mb-2"><strong>Contoh:</strong> oleh karena itu, dengan demikian, akibatnya</p>
+       <p class="text-sm text-gray-600">Menunjukkan hasil atau konsekuensi dari kalimat sebelumnya</p>
+      </div>
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl">
+       <h3 class="font-bold text-green-800 mb-3 text-lg">? Hubungan Penambahan</h3>
+       <p class="text-gray-700 mb-2"><strong>Contoh:</strong> selain itu, di samping itu, lagi pula</p>
+       <p class="text-sm text-gray-600">Menambahkan informasi pada kalimat sebelumnya</p>
+      </div>
+      <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
+       <h3 class="font-bold text-purple-800 mb-3 text-lg">?? Hubungan Pertentangan</h3>
+       <p class="text-gray-700 mb-2"><strong>Contoh:</strong> akan tetapi, namun, sebaliknya</p>
+       <p class="text-sm text-gray-600">Menunjukkan kontras dengan kalimat sebelumnya</p>
+      </div>
+      <div class="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl">
+       <h3 class="font-bold text-orange-800 mb-3 text-lg">? Hubungan Waktu</h3>
+       <p class="text-gray-700 mb-2"><strong>Contoh:</strong> kemudian, selanjutnya, setelah itu</p>
+       <p class="text-sm text-gray-600">Menunjukkan urutan waktu kejadian</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contoh Section -->
+    <section id="contoh" class="mb-16 reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Contoh Paragraf</h2>
+     </div>
+     <div class="space-y-6">
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border-l-4 border-blue-400">
+       <h3 class="font-semibold text-blue-800 mb-3">?? Contoh 1: Pendidikan</h3>
+       <p class="text-gray-700 leading-relaxed">Pendidikan adalah kunci untuk membuka masa depan yang cerah. <span class="font-semibold text-blue-600">Selain itu,</span> pendidikan juga membentuk karakter dan kepribadian seseorang. <span class="font-semibold text-blue-600">Namun,</span> tidak semua orang memiliki akses yang sama terhadap pendidikan berkualitas. <span class="font-semibold text-blue-600">Oleh karena itu,</span> pemerintah perlu memastikan pemerataan pendidikan di seluruh wilayah.</p>
+      </div>
+      <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl border-l-4 border-green-400">
+       <h3 class="font-semibold text-green-800 mb-3">?? Contoh 2: Lingkungan Hidup</h3>
+       <p class="text-gray-700 leading-relaxed">Hutan merupakan paru-paru dunia yang sangat penting bagi kehidupan. <span class="font-semibold text-green-600">Di samping itu,</span> hutan juga menjadi habitat bagi berbagai jenis flora dan fauna. <span class="font-semibold text-green-600">Akan tetapi,</span> deforestasi terus mengancam kelestarian hutan. <span class="font-semibold text-green-600">Dengan demikian,</span> upaya pelestarian hutan harus segera dilakukan secara serius.</p>
+      </div>
+     </div><!-- Metafora Section -->
+     <div class="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
+      <h3 class="font-semibold text-purple-800 mb-3 flex items-center"><span class="mr-2">??</span> Metafora Konjungsi Antarkalimat</h3><!-- Ilustrasi Metafora -->
+            <div class="flex justify-center mb-6">
+             <div class="w-full max-w-sm md:max-w-md reveal">
+                <svg viewBox="0 0 350 180" class="drop-shadow-lg w-full h-auto"><!-- Background --> <rect width="350" height="180" fill="url(#metaphorGradient)" /> <!-- Balok kayu 1 --> <rect x="30" y="60" width="60" height="80" fill="#8b4513" stroke="#654321" stroke-width="2" /> <rect x="35" y="65" width="50" height="70" fill="#a0522d" /> <text x="60" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">
+         Kalimat 1
+                </text> <!-- Balok kayu 2 --> <rect x="130" y="60" width="60" height="80" fill="#8b4513" stroke="#654321" stroke-width="2" /> <rect x="135" y="65" width="50" height="70" fill="#a0522d" /> <text x="160" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">
+         Kalimat 2
+                </text> <!-- Balok kayu 3 --> <rect x="230" y="60" width="60" height="80" fill="#8b4513" stroke="#654321" stroke-width="2" /> <rect x="235" y="65" width="50" height="70" fill="#a0522d" /> <text x="260" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">
+         Kalimat 3
+        </text> <!-- Tali penghubung --> <path d="M 90 100 Q 110 85 130 100" stroke="#d97706" stroke-width="6" fill="none" stroke-linecap="round" /> <path d="M 190 100 Q 210 85 230 100" stroke="#d97706" stroke-width="6" fill="none" stroke-linecap="round" /> <!-- Simpul tali --> <circle cx="110" cy="92" r="6" fill="#b45309" /> <circle cx="210" cy="92" r="6" fill="#b45309" /> <!-- Label tali --> <text x="110" y="75" text-anchor="middle" fill="#92400e" font-size="10" font-weight="bold">
+         Konjungsi
+        </text> <text x="210" y="75" text-anchor="middle" fill="#92400e" font-size="10" font-weight="bold">
+         Konjungsi
+        </text> <!-- Struktur kokoh --> <text x="175" y="25" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="bold">
+         Struktur Paragraf yang Kokoh
+        </text> <text x="175" y="40" text-anchor="middle" fill="#6b21a8" font-size="12">
+         Terikat dengan Konjungsi Antarkalimat
+        </text> <!-- Panah stabilitas --> <path d="M 60 150 L 60 145 L 55 150 M 60 145 L 65 150" stroke="#16a34a" stroke-width="2" fill="none" /> <path d="M 160 150 L 160 145 L 155 150 M 160 145 L 165 150" stroke="#16a34a" stroke-width="2" fill="none" /> <path d="M 260 150 L 260 145 L 255 150 M 260 145 L 265 150" stroke="#16a34a" stroke-width="2" fill="none" /> <text x="175" y="165" text-anchor="middle" fill="#15803d" font-size="12" font-weight="bold">
+         Stabil &amp; Terhubung
+        </text> <!-- Gradients --> <defs>
+         <lineargradient id="metaphorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fdf4ff;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#fae8ff;stop-opacity:1" />
+         </lineargradient>
+        </defs>
+             </svg>
+             </div>
+      </div>
+      <p class="text-gray-700 leading-relaxed">Konjungsi antarkalimat dapat dibayangkan seperti <strong>tali penghubung</strong> yang menyatukan satu kalimat dengan kalimat berikutnya agar tidak terasa terpisah. Setiap kalimat dalam paragraf ibarat balok kayu yang berdiri sendiri-sendiri. Jika balok-balok itu tidak diikat, maka susunannya akan mudah runtuh, tidak membentuk struktur yang kokoh, dan sulit dilihat sebagai satu kesatuan. Dengan adanya konjungsi antarkalimat, balok-balok itu terikat satu sama lain, membuat paragraf menjadi lebih kuat, rapi, dan mudah diikuti. Tali penghubung ini memastikan bahwa alur ide mengalir lancar; pembaca dapat berpindah dari satu gagasan ke gagasan berikutnya tanpa merasa tersendat. Konjungsi bekerja diam-diam�sederhana tetapi sangat penting�karena tanpanya, tulisan akan terasa patah-patah seperti potongan informasi yang tidak saling terkait.</p>
+     </div>
+    </div>
+   </section><!-- Tips Section -->
+    <section class="mb-16 reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Tips Penggunaan</h2>
+     </div><!-- Ilustrasi Tips -->
+         <div class="flex justify-center mb-8">
+            <div class="w-full max-w-sm md:max-w-lg reveal">
+             <svg viewBox="0 0 380 200" class="drop-shadow-lg w-full h-auto"><!-- Background --> <rect width="380" height="200" fill="url(#tipsGradient)" /> <!-- Benar Section --> <rect x="20" y="30" width="150" height="140" fill="#dcfce7" stroke="#16a34a" stroke-width="2" /> <text x="95" y="50" text-anchor="middle" fill="#15803d" font-size="14" font-weight="bold">
+        ? BENAR
+       </text> <!-- Contoh benar --> <rect x="30" y="60" width="130" height="20" fill="#ffffff" /> <text x="95" y="73" text-anchor="middle" fill="#374151" font-size="10">
+        Hari ini hujan deras.
+       </text> <rect x="30" y="85" width="130" height="20" fill="#ffffff" /> <text x="40" y="98" text-anchor="start" fill="#dc2626" font-size="10" font-weight="bold">
+        Oleh karena itu,
+       </text> <text x="110" y="98" text-anchor="start" fill="#374151" font-size="10">
+        jalan becek.
+       </text> <!-- Panah benar --> <path d="M 95 110 L 95 120" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)" /> <text x="95" y="135" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">
+        Di awal + koma
+       </text> <text x="95" y="150" text-anchor="middle" fill="#15803d" font-size="11">
+        Hubungan logis jelas
+       </text> <!-- Salah Section --> <rect x="210" y="30" width="150" height="140" fill="#fef2f2" stroke="#dc2626" stroke-width="2" /> <text x="285" y="50" text-anchor="middle" fill="#dc2626" font-size="14" font-weight="bold">
+        ? SALAH
+       </text> <!-- Contoh salah --> <rect x="220" y="60" width="130" height="20" fill="#ffffff" /> <text x="285" y="73" text-anchor="middle" fill="#374151" font-size="10">
+        Hari ini hujan deras.
+       </text> <rect x="220" y="85" width="130" height="20" fill="#ffffff" /> <text x="230" y="98" text-anchor="start" fill="#374151" font-size="10">
+        Jalan becek
+       </text> <text x="285" y="98" text-anchor="start" fill="#dc2626" font-size="10" font-weight="bold">
+        oleh karena itu.
+       </text> <!-- Panah salah --> <path d="M 285 110 L 285 120" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" /> <text x="285" y="135" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">
+        Di tengah/akhir
+       </text> <text x="285" y="150" text-anchor="middle" fill="#dc2626" font-size="11">
+        Tidak sesuai aturan
+       </text> <!-- Gradients and markers --> <defs>
+        <lineargradient id="tipsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+         <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+         <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+        </lineargradient>
+        <marker id="arrowGreen" markerwidth="10" markerheight="10" refx="9" refy="3" orient="auto" markerunits="strokeWidth">
+         <path d="M0,0 L0,6 L9,3 z" fill="#16a34a" />
+        </marker>
+        <marker id="arrowRed" markerwidth="10" markerheight="10" refx="9" refy="3" orient="auto" markerunits="strokeWidth">
+         <path d="M0,0 L0,6 L9,3 z" fill="#dc2626" />
+        </marker>
+       </defs>
+            </svg>
+            </div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="space-y-4">
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-green-700">Yang Benar</h4>
+         <p class="text-gray-600 text-sm">Letakkan di awal kalimat dan diikuti koma</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-green-700">Pilih yang Tepat</h4>
+         <p class="text-gray-600 text-sm">Sesuaikan dengan hubungan logis antar kalimat</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-green-700">Variasi Penggunaan</h4>
+         <p class="text-gray-600 text-sm">Gunakan berbagai jenis untuk menghindari monoton</p>
+        </div>
+       </div>
+      </div>
+      <div class="space-y-4">
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-red-700">Hindari Berlebihan</h4>
+         <p class="text-gray-600 text-sm">Jangan gunakan terlalu banyak dalam satu paragraf</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-red-700">Salah Posisi</h4>
+         <p class="text-gray-600 text-sm">Jangan letakkan di tengah atau akhir kalimat</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-3"><span class="text-2xl">?</span>
+        <div>
+         <h4 class="font-semibold text-red-700">Tidak Sesuai Konteks</h4>
+         <p class="text-gray-600 text-sm">Pastikan konjungsi sesuai dengan hubungan kalimat</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Kuis Section -->
+    <section id="kuis" class="mb-16 reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Kuis Interaktif</h2>
+     </div>
+     <div id="quiz-container" class="space-y-6"><!-- Quiz questions will be populated by JavaScript -->
+     </div>
+     <div class="mt-6 text-center"><button id="submit-quiz" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"> Lihat Hasil ?? </button>
+     </div>
+     <div id="quiz-result" class="mt-6 p-6 rounded-xl hidden"><!-- Quiz results will be shown here -->
+     </div>
+    </div>
+   </section><!-- Jawaban Kuis Section -->
+    <section id="pembahasan-section" class="mb-16 hidden reveal">
+    <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+     <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4"><span class="text-2xl">??</span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Pembahasan Jawaban</h2>
+     </div>
+     <div class="space-y-6">
+      <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-400">
+       <h3 class="font-semibold text-green-800 mb-2">Soal 1: Hubungan Sebab-Akibat</h3>
+       <p class="text-gray-700 mb-2"><strong>Jawaban:</strong> oleh karena itu</p>
+       <p class="text-sm text-gray-600">Kalimat menunjukkan akibat dari hujan deras, sehingga menggunakan konjungsi sebab-akibat.</p>
+      </div>
+      <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-400">
+       <h3 class="font-semibold text-blue-800 mb-2">Soal 2: Hubungan Penambahan</h3>
+       <p class="text-gray-700 mb-2"><strong>Jawaban:</strong> selain itu</p>
+       <p class="text-sm text-gray-600">Kalimat menambahkan informasi tentang manfaat olahraga selain kesehatan fisik.</p>
+      </div>
+      <div class="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-400">
+       <h3 class="font-semibold text-purple-800 mb-2">Soal 3: Hubungan Pertentangan</h3>
+       <p class="text-gray-700 mb-2"><strong>Jawaban:</strong> namun</p>
+       <p class="text-sm text-gray-600">Kalimat menunjukkan kontras antara keinginan dan kenyataan yang terjadi.</p>
+      </div>
+      <div class="bg-orange-50 p-6 rounded-xl border-l-4 border-orange-400">
+       <h3 class="font-semibold text-orange-800 mb-2">Soal 4: Hubungan Waktu</h3>
+       <p class="text-gray-700 mb-2"><strong>Jawaban:</strong> kemudian</p>
+       <p class="text-sm text-gray-600">Kalimat menunjukkan urutan waktu kejadian setelah makan siang.</p>
+      </div>
+      <div class="bg-indigo-50 p-6 rounded-xl border-l-4 border-indigo-400">
+       <h3 class="font-semibold text-indigo-800 mb-2">Soal 5: Hubungan Kesimpulan</h3>
+       <p class="text-gray-700 mb-2"><strong>Jawaban:</strong> dengan demikian</p>
+       <p class="text-sm text-gray-600">Kalimat menunjukkan kesimpulan dari usaha belajar yang giat, sehingga menggunakan konjungsi kesimpulan.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main><!-- Footer -->
+  <footer class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-12">
+   <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="mb-6"><span class="text-4xl">??</span>
+    </div>
+         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
+     <h3 class="font-bold text-xl mb-4">Created by Kelompok Rendang XII F7</h3><!-- Foto Kelompok Besar -->
+    <div class="flex justify-center mb-4">
+     <div id="group-photo-wrapper" class="w-full max-w-md h-48 sm:h-56 md:h-48 bg-white/20 rounded-xl border-4 border-white/40 shadow-lg overflow-hidden relative skeleton">
+      <img id="group-photo" src="fotokelompok.jpg" alt="Foto Kelompok" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" />
+     </div>
+     </div><!-- Nama Anggota -->
+     <div class="text-center">
+      <div class="bg-white/10 rounded-lg p-3 text-sm">
+       <div class="font-semibold mb-2">
+        Anggota Kelompok:
+       </div>
+       <div class="grid grid-cols-2 gap-2 text-xs">
+        <div>
+         � Hutami Almira Dinaya
+        </div>
+        <div>
+         � Huwaidata Mardiyah
+        </div>
+        <div>
+         � Aprilia Rizqi
+        </div>
+        <div>
+         � Iis Mulyanah
+        </div>
+        <div>
+         � Rama Aditya
+        </div>
+        <div>
+         � Fajar Dwi
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <p id="footer-text" class="text-lg mb-6">Terima kasih telah belajar bersama kami!</p>
+    <div class="mt-6 text-sm opacity-75">
+     � 2024 Pembelajaran Konjungsi Antarkalimat - Semua hak dilindungi
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "Hujan deras turun sejak pagi. _____, jalan-jalan menjadi tergenang air.",
+                options: ["Selain itu", "Oleh karena itu", "Namun", "Kemudian"],
+                correct: 1,
+                explanation: "Menunjukkan hubungan sebab-akibat"
+            },
+            {
+                question: "Olahraga baik untuk kesehatan fisik. _____, olahraga juga dapat meningkatkan kesehatan mental.",
+                options: ["Akan tetapi", "Selain itu", "Sebaliknya", "Akibatnya"],
+                correct: 1,
+                explanation: "Menambahkan informasi pada kalimat sebelumnya"
+            },
+            {
+                question: "Andi ingin pergi ke pantai hari ini. _____, cuaca mendung dan hujan turun.",
+                options: ["Selain itu", "Oleh karena itu", "Namun", "Kemudian"],
+                correct: 2,
+                explanation: "Menunjukkan pertentangan dengan kalimat sebelumnya"
+            },
+            {
+                question: "Siswa-siswa selesai makan siang di kantin. _____, mereka kembali ke kelas untuk melanjutkan pelajaran.",
+                options: ["Namun", "Selain itu", "Kemudian", "Sebaliknya"],
+                correct: 2,
+                explanation: "Menunjukkan urutan waktu kejadian"
+            },
+            {
+                question: "Lengkapi kalimat berikut: 'Semua siswa sudah belajar dengan giat. _____, mereka berhasil mendapat nilai yang memuaskan.'",
+                options: ["Namun", "Sebaliknya", "Dengan demikian", "Selain itu"],
+                correct: 2,
+                explanation: "Menunjukkan kesimpulan dari usaha yang telah dilakukan"
+            }
+        ];
+
+        let userAnswers = [];
+        let quizSubmitted = false;
+
+        // Default configuration
+        const defaultConfig = {
+            main_title: "Pembelajaran Konjungsi Antarkalimat",
+            subtitle: "Memahami Kata Penghubung dalam Bahasa Indonesia",
+            footer_text: "Terima kasih telah belajar bersama kami!"
+        };
+
+        // Initialize quiz
+        function initializeQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            quizData.forEach((quiz, index) => {
+                const quizElement = document.createElement('div');
+                quizElement.className = 'bg-gray-50 p-6 rounded-xl';
+                quizElement.innerHTML = `
+                    <h3 class="font-semibold text-gray-800 mb-4">Soal ${index + 1}</h3>
+                    <p class="text-gray-700 mb-4">${quiz.question}</p>
+                    <div class="space-y-2">
+                        ${quiz.options.map((option, optionIndex) => `
+                            <div class="quiz-option border-2 border-gray-200 rounded-lg p-3" 
+                                 data-question="${index}" data-option="${optionIndex}">
+                                ${String.fromCharCode(65 + optionIndex)}. ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(quizElement);
+            });
+
+            // Add event listeners to quiz options
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', handleQuizOptionClick);
+            });
+        }
+
+        function handleQuizOptionClick(event) {
+            if (quizSubmitted) return;
+            
+            const questionIndex = parseInt(event.target.dataset.question);
+            const optionIndex = parseInt(event.target.dataset.option);
+            
+            // Remove previous selection for this question
+            document.querySelectorAll(`[data-question="${questionIndex}"]`).forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            event.target.classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+        }
+
+        function submitQuiz() {
+            if (userAnswers.length !== quizData.length) {
+                // Create custom modal instead of alert
+                showCustomMessage("Mohon jawab semua soal terlebih dahulu!", "warning");
+                return;
+            }
+            
+            quizSubmitted = true;
+            let correctCount = 0;
+            
+            // Show correct/incorrect answers
+            quizData.forEach((quiz, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === quiz.correct;
+                if (isCorrect) correctCount++;
+                
+                const questionOptions = document.querySelectorAll(`[data-question="${index}"]`);
+                questionOptions.forEach((option, optionIndex) => {
+                    option.classList.remove('selected');
+                    if (optionIndex === quiz.correct) {
+                        option.classList.add('correct');
+                    } else if (optionIndex === userAnswer && !isCorrect) {
+                        option.classList.add('incorrect');
+                    }
+                    option.style.pointerEvents = 'none';
+                });
+            });
+            
+            // Show results
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correctCount / quizData.length) * 100);
+            let resultClass = 'bg-red-50 border-red-200';
+            let resultIcon = '??';
+            let resultMessage = 'Tetap semangat belajar!';
+            
+            if (percentage >= 80) {
+                resultClass = 'bg-green-50 border-green-200';
+                resultIcon = '??';
+                resultMessage = 'Luar biasa! Anda sangat memahami materi ini!';
+            } else if (percentage >= 60) {
+                resultClass = 'bg-yellow-50 border-yellow-200';
+                resultIcon = '??';
+                resultMessage = 'Bagus! Terus tingkatkan pemahaman Anda!';
+            }
+            
+            resultDiv.className = `mt-6 p-6 rounded-xl border-2 ${resultClass}`;
+            resultDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="text-4xl mb-2">${resultIcon}</div>
+                    <h3 class="text-xl font-bold mb-2">Hasil Kuis Anda</h3>
+                    <p class="text-2xl font-bold mb-2">${correctCount}/${quizData.length} (${percentage}%)</p>
+                    <p class="text-gray-700">${resultMessage}</p>
+                </div>
+            `;
+            resultDiv.classList.remove('hidden');
+            
+            // Show pembahasan section
+            document.getElementById('pembahasan-section').classList.remove('hidden');
+            
+            // Disable submit button
+            document.getElementById('submit-quiz').disabled = true;
+            document.getElementById('submit-quiz').textContent = 'Kuis Selesai ?';
+        }
+
+        function showCustomMessage(message, type = 'info') {
+            // Create custom message overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            
+            const modal = document.createElement('div');
+            modal.className = 'bg-white rounded-xl p-6 max-w-md mx-4 shadow-2xl';
+            
+            const iconMap = {
+                'warning': '??',
+                'info': '??',
+                'success': '?',
+                'error': '?'
+            };
+            
+            modal.innerHTML = `
+                <div class="text-center">
+                    <div class="text-4xl mb-4">${iconMap[type] || iconMap.info}</div>
+                    <p class="text-gray-700 mb-4">${message}</p>
+                    <button onclick="this.closest('.fixed').remove()" 
+                            class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        OK
+                    </button>
+                </div>
+            `;
+            
+            overlay.appendChild(modal);
+            document.body.appendChild(overlay);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Element SDK configuration
+        async function onConfigChange(config) {
+            // Update main title
+            const mainTitle = document.getElementById('main-title');
+            if (mainTitle) {
+                mainTitle.textContent = config.main_title || defaultConfig.main_title;
+            }
+            
+            // Update nav title
+            const navTitle = document.getElementById('nav-title');
+            if (navTitle) {
+                navTitle.textContent = config.main_title || defaultConfig.main_title;
+            }
+            
+            // Update subtitle
+            const subtitle = document.getElementById('subtitle');
+            if (subtitle) {
+                subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+            }
+            
+            // Update footer text
+            const footerText = document.getElementById('footer-text');
+            if (footerText) {
+                footerText.textContent = config.footer_text || defaultConfig.footer_text;
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["subtitle", config.subtitle || defaultConfig.subtitle],
+                ["footer_text", config.footer_text || defaultConfig.footer_text]
+            ]);
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQuiz();
+            
+            // Add event listener to submit button
+            document.getElementById('submit-quiz').addEventListener('click', submitQuiz);
+            // Reveal on scroll animations
+            const revealEls = document.querySelectorAll('.reveal');
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+            revealEls.forEach(el => io.observe(el));
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth show of group photo + remove skeleton when loaded
+            const photoImg = document.getElementById('group-photo');
+            const photoWrapper = document.getElementById('group-photo-wrapper');
+            if (photoImg && photoWrapper) {
+                if (photoImg.complete && photoImg.naturalWidth > 0) {
+                    photoImg.classList.add('opacity-100');
+                    photoWrapper.classList.remove('skeleton');
+                } else {
+                    photoImg.addEventListener('load', () => {
+                        photoImg.classList.add('opacity-100');
+                        photoWrapper.classList.remove('skeleton');
+                    });
+                    photoImg.addEventListener('error', () => {
+                        photoWrapper.classList.remove('skeleton');
+                    });
+                }
+            }
+            
+            // Initialize Element SDK if available
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig: defaultConfig,
+                    onConfigChange: onConfigChange,
+                    mapToCapabilities: mapToCapabilities,
+                    mapToEditPanelValues: mapToEditPanelValues
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99e75054f7a7cf50',t:'MTc2MzEzMTc0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
